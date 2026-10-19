@@ -1,0 +1,18 @@
+default_model: rtdetrx_player_best
+
+models:
+  rtdetrx_player_best:
+    family: rtdetr
+    variant: rtdetr-x
+    weights_path: "/content/drive/MyDrive/UCF/Courses/Spring2026/IndependentStudy/Datasets/OtherDatasets/Object_Detection/Models/YOLO/Output/RTDETR/weights/best.pt"
+    class_names: ["player", "ball"]
+    allowed_class_ids: [0, 1]
+    imgsz: 640
+
+  yolo26x_player_best:
+    family: yolo
+    variant: yolo26x
+    weights_path: "/content/drive/MyDrive/UCF/Courses/Spring2026/IndependentStudy/Datasets/OtherDatasets/Object_Detection/Models/YOLO/Output/YOLO26/weights/best.pt"
+    class_names: ["player", "ball"]
+    allowed_class_ids: [0, 1]
+    imgsz: 640

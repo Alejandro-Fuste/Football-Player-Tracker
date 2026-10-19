@@ -1,0 +1,65 @@
+# OccluBoost tracker configuration for Football Player Tracking
+tracker_type: occluboost
+
+# High/Low thresholding
+det_thresh: 0.6295
+track_low_thresh: 0.2302
+new_track_thresh: 0.4984
+max_age: 65
+min_hits: 1
+
+# Bounding box matching metrics
+iou_threshold: 0.1193
+aspect_ratio_thresh: 1.804
+
+# BoostTrack association lambda weights
+lambda_iou: 0.1561
+lambda_mhd: 0.3387
+lambda_shape: 1.862
+
+# DLO/DUO confidence boosting
+use_dlo_boost: true
+use_duo_boost: false
+dlo_boost_coef: 1.619
+s_sim_corr: false
+use_rich_s: true
+use_sb: true
+use_vt: true
+
+# ReID model parameters
+with_reid: true
+model: osnet_x0_25_msmt17.pt
+
+# CMC camera motion compensation
+cmc_method: ecc
+use_ecc: true
+
+# Recovery pass (occlusion handling) parameters
+recovery_appearance_thresh: 0.2603
+recovery_iou_thresh: 0.2429
+recovery_max_age: 117
+feat_alpha: 0.8519
+
+# Track confirmation / tentative track filtering
+confirm_hits: 4
+instant_confirm_thresh: 0.5761
+tentative_max_age: 3
+duplicate_iou_thresh: 0.9471
+
+# Adaptive Multi-Stage Association (AMS)
+ams_enabled: true
+ams_alpha0: 0.3663
+ams_threshold: 0.4635
+ams_buffer_size: 7
+ams_shrink_ratio: 0.5468
+lambda_emb_multiplier: 2.827
+
+# Gated Track Association (GTA) post-processing
+gta_enabled: false
+gta_appearance_thresh: 0.7125
+gta_min_track_length: 7
+gta_smooth_tau: 14.75
+gta_interpolate: false
+gta_max_gap: 40
+
+adaptive_kf: false
