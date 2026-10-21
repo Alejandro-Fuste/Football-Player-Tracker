@@ -11,61 +11,9 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-# --- START BOXMOT PATH FORCE (Inserted by Colab Agent) ---
-_boxmot_repo_path = '/tmp/boxmot_repo'
-# Explicitly remove any other boxmot installations from sys.path if they were loaded
-# This is a robust way to ensure the editable install is used by the subprocess
-_paths_to_remove = []
-for p in list(sys.path): # Iterate over a copy as sys.path may be modified
-    if 'boxmot' in p and _boxmot_repo_path not in p:
-        _paths_to_remove.append(p)
-for p in _paths_to_remove:
-    sys.path.remove(p)
-    print(f"DEBUG: Removed '{p}' from sys.path to force correct boxmot usage.")
-
-# Ensure the cloned boxmot repo is at the very beginning of sys.path
-if _boxmot_repo_path not in sys.path:
-    sys.path.insert(0, _boxmot_repo_path)
-    print(f"DEBUG: Inserted '{_boxmot_repo_path}' to sys.path.")
-
-# Diagnostic prints to verify boxmot import source
-try:
-    import boxmot
-    print(f"DEBUG: boxmot imported from: {boxmot.__file__}")
-    from boxmot.trackers.common.appearance import resolve_batch_embeddings
-    print(f"DEBUG: resolve_batch_embeddings loaded from: {resolve_batch_embeddings.__code__.co_filename}")
-except Exception as e:
-    print(f"DEBUG: Error during boxmot inspection in detect_track_export: {e}")
-# --- END BOXMOT PATH FORCE ---
 
 
 
-# --- START BOXMOT PATH FORCE (Inserted by Colab Agent) ---
-_boxmot_repo_path = '/tmp/boxmot_repo'
-# Explicitly remove any other boxmot installations from sys.path if they were loaded
-# This is a robust way to ensure the editable install is used by the subprocess
-_paths_to_remove = []
-for p in list(sys.path): # Iterate over a copy as sys.path may be modified
-    if 'boxmot' in p and _boxmot_repo_path not in p:
-        _paths_to_remove.append(p)
-for p in _paths_to_remove:
-    sys.path.remove(p)
-    print(f"DEBUG: Removed '{p}' from sys.path to force correct boxmot usage.")
-
-# Ensure the cloned boxmot repo is at the very beginning of sys.path
-if _boxmot_repo_path not in sys.path:
-    sys.path.insert(0, _boxmot_repo_path)
-    print(f"DEBUG: Inserted '{_boxmot_repo_path}' to sys.path.")
-
-# Diagnostic prints to verify boxmot import source
-try:
-    import boxmot
-    print(f"DEBUG: boxmot imported from: {boxmot.__file__}")
-    from boxmot.trackers.common.appearance import resolve_batch_embeddings
-    print(f"DEBUG: resolve_batch_embeddings loaded from: {resolve_batch_embeddings.__code__.co_filename}")
-except Exception as e:
-    print(f"DEBUG: Error during boxmot inspection in detect_track_export: {e}")
-# --- END BOXMOT PATH FORCE ---
 
 
 

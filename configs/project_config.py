@@ -3,6 +3,7 @@ Project-level configuration for the AF-MOT inference, tracking, evaluation, and 
 """
 
 from pathlib import Path
+import os
 
 # Target Dataset Layout (AF-MOT)
 DATASET_ROOT = Path("/content/drive/MyDrive/UCF/Courses/Spring2026/IndependentStudy/Datasets/OtherDatasets/AF-MOT")
@@ -10,20 +11,14 @@ VIDEOS_DIR = DATASET_ROOT / "videos"
 ANNOT_ROOT = DATASET_ROOT / "annotations"
 
 # Project Code Directories
-PROJECT_ROOT = Path("/content/drive/MyDrive/UCF/Courses/Spring2026/IndependentStudy/Utilities/Football_MOT_Exporting")
-
-# Robust local environment fallback
-if not PROJECT_ROOT.exists():
-    local_path = Path(__file__).resolve().parents[1]
-    if (local_path / "configs").exists():
-        PROJECT_ROOT = local_path
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 CONFIG_DIR = PROJECT_ROOT / "configs"
 MODEL_REGISTRY = CONFIG_DIR / "model_registry.yaml"
 BOTSORT_CONFIG = CONFIG_DIR / "football_botsort.yaml"
 
 # Output organized export folders
-EXPORT_DIR = PROJECT_ROOT / "exports"
+EXPORT_DIR = Path(os.environ.get("FOOTBALL_TRACKER_EXPORT_DIR", str(PROJECT_ROOT / "exports")))
 CVAT_EXPORT_DIR = EXPORT_DIR / "cvat_mot_tracks"
 PREVIEW_DIR = EXPORT_DIR / "previews"
 METRICS_DIR = EXPORT_DIR / "metrics"
